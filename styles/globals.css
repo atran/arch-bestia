@@ -17,19 +17,25 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
+  width: 100%;
 }
 
 .container {
-  height: 100vh;
+  display: block;
+}
+
+.grid {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid figure {
+  width: 3.03vw;
+  height: auto;
+}
+
+.grid figure img {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
