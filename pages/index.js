@@ -18,11 +18,10 @@ export default function Home() {
       <Header />
 
       <main>
-        <h1>Grid images read from directory:</h1>
-          <div className="grid">
-            {!data && "Loading..."}
-            {data && data.map(imgPath => <figure><img src={imgPath} alt=""/></figure>)}
-          </div>
+        <div className="grid">
+          {!data && "Loading..."}
+          {data && data.map(imgPath => <figure><img src={imgPath} alt=""/></figure>)}
+        </div>
       </main>
 
       <Footer />

@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default (req, res) => {
-  const dirRelativeToPublicFolder = 'img'
+  const dirRelativeToPublicFolder = 'iterations/2021-03-13'
 
   const dir = path.resolve('./public', dirRelativeToPublicFolder);
 
