@@ -1,11 +1,11 @@
+import React from 'react';
 import padStart from 'lodash/padStart';
 import classnames from 'classnames';
 
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import React from 'react';
-
+import Item from '@components/Item';
 
 class Home extends React.Component {
   state = {
@@ -29,11 +29,7 @@ class Home extends React.Component {
       for (let y = 0; y <= 15; y++) {
         const directory = 'iterations/2021-03-15/'
         const filename = `out_${padStart(x, 2, '0')}_${padStart(y, 2, '0')}.png`
-        gridEls.push(
-          <figure>
-            <img src={`${directory}${filename}`} alt="" onClick={this.addGrid}/>
-          </figure>
-        )
+        gridEls.push(<Item imgSrc={`${directory}${filename}`} />)
       }
     }
     return gridEls;
@@ -62,7 +58,7 @@ class Home extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        {/* <Header /> */}
+        <Header />
 
         <main ref={this.mainElRef}>
           <div className={firstGridClass}>

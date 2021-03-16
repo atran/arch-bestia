@@ -20,6 +20,10 @@ main {
   height: 150vh;
 }
 
+h1 {
+  padding: 0 5vh 3vh
+}
+
 .container {
   display: block;
 }
@@ -52,7 +56,8 @@ main {
 .grid figure {
   width: 6%;
   height: auto;
-  margin: 0.125%
+  margin: 0.125%;
+  cursor: pointer;
 }
 
 .grid figure img {
