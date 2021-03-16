@@ -62,16 +62,21 @@ class Home extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <Header />
+        {/* <Header /> */}
 
         <main ref={this.mainElRef}>
-          <div className={firstGridClass} onClick={this.setActiveState}>
+          <div className={firstGridClass}>
             {this.createGrid()}
           </div>
           {
             active && <div className={secondGridClass}>{this.createGrid()}</div>
           }
-
+          <div class="breadcrumbs" onClick={this.setActiveState}>
+            <span class="arrow">
+              {String.fromCharCode(11105)}
+            </span>
+            <div>Go to previous day</div>
+          </div>
         </main>
 
         <Footer />

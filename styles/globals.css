@@ -11,13 +11,13 @@ body {
 }
 
 main {
-  padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 150vh;
 }
 
 .container {
@@ -29,7 +29,7 @@ main {
   top: 10%;
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 60%;
   transition: all 1s linear;
   transition-timing-function: cubic-bezier(.23,1,.32,1);
   opacity: 0;
@@ -50,12 +50,33 @@ main {
 }
 
 .grid figure {
-  width: 6.25%;
+  width: 6%;
   height: auto;
+  margin: 0.125%
 }
 
 .grid figure img {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.grid figure img:hover {
+  transform: scale(5.2);
+}
+
+.breadcrumbs {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs .arrow {
+  font-size: 100px;
+
 }
