@@ -5,10 +5,13 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <nav>
-          <span href="#">The Architecture Beast</span>
+          <span className="footer-link" href="#">The Architecture Beast</span>
           <span href="#">Gallery</span>
           <span href="#">About</span>
         </nav>
+        <p className={styles.caption}>
+          Hello world AI generated caption ipsum dolor; etc.
+        </p>
       </footer>
     </>
   )

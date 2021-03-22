@@ -3,23 +3,26 @@
   display: flex;
   position: fixed;
   bottom: 0;
-  padding: 0 5vh 3vh;
+  padding: 3vh 5vh;
+  font-size: 16px;
+  justify-content: space-between;
 }
 
 .footer span {
-  font-size: 14px;
   cursor: pointer;
-  background: #ebebeb;
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-radius: 2px;
   margin-right: 5px;
   color: blue;
 }
 
-.logo {
-  height: 1em;
-  margin: 5px;
+.footer span,
+.caption {
+  background: #ebebeb;
+  padding: 8px 15px 10px 15px;
+  border-radius: 2px;
+}
+
+.caption {
+  align-self: flex-end;
+  cursor: default;
+  color: black;
 }

@@ -3,14 +3,12 @@
   display: flex;
   position: fixed;
   top: 0;
-  padding: 0 5vh 3vh;
+  padding: 3vh 5vh;
   z-index: 10001;
 }
 
 .title {
   padding: 1vh 5vh;
-  position: fixed;
-  z-index: 10001;
   background: #ebebeb;
   display: block;
 }
