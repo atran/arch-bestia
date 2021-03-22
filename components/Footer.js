@@ -5,9 +5,9 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <nav>
-          <a href="#">The Architecture Beast</a>
-          <a href="#">Gallery</a>
-          <a href="#">About</a>
+          <span href="#">The Architecture Beast</span>
+          <span href="#">Gallery</span>
+          <span href="#">About</span>
         </nav>
       </footer>
     </>

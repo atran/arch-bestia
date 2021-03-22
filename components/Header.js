@@ -1,3 +1,11 @@
+import styles from './Header.module.css'
+
 export default function Header() {
-  return <h1 className="title">Iteration 1: 2020-03-15</h1>
+  return (
+    <>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Iteration 1: 2020-03-15</h1>
+      </header>
+    </>
+  )
 }

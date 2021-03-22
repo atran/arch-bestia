@@ -1,8 +1,14 @@
+@font-face {
+  font-family: 'PxGrotesk-Bold';
+  src:  url('/fonts/PxGrotesk-Bold.woff2') format('woff2'),
+        url('/fonts/PxGrotesk-Bold.woff') format('woff');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+  font-family: PxGrotesk-Bold, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -17,11 +23,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 150vh;
-}
-
-h1 {
-  padding: 0 5vh 3vh
+  height: 100vh;
 }
 
 .container {
@@ -30,14 +32,14 @@ h1 {
 
 .grid {
   position: absolute;
-  top: 10%;
+  top: -10vh;
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  height: 100vh;
+  width: 120vw;
   transition: all 1s linear;
   transition-timing-function: cubic-bezier(.23,1,.32,1);
   opacity: 0;
-  transform: translateY(10%) scale(1.1);
   transition-delay: 0.2s;
 }
 
@@ -66,8 +68,8 @@ h1 {
   width: 100%;
 }
 
-.grid figure img:hover {
-  transform: scale(5.2);
+.grid figure.selected {
+  transform: scale(2.2);
 }
 
 .breadcrumbs {
@@ -83,5 +85,4 @@ h1 {
 
 .breadcrumbs .arrow {
   font-size: 100px;
-
 }

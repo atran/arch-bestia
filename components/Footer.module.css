@@ -6,8 +6,7 @@
   padding: 0 5vh 3vh;
 }
 
-.footer a {
-  font-family: courier,monospace;
+.footer span {
   font-size: 14px;
   cursor: pointer;
   background: #ebebeb;
@@ -17,6 +16,7 @@
   padding-right: 15px;
   border-radius: 2px;
   margin-right: 5px;
+  color: blue;
 }
 
 .logo {

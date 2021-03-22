@@ -12,6 +12,14 @@ class Home extends React.Component {
     active: false,
     initialOne: false,
     initialTwo: false,
+    mouseX: -1,
+    mouseY: -1,
+    windowWidth: -1,
+    windowHeight: -1,
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ windowWidth: window.innerWidth, windowHeight: window.innerHeight });
   }
 
   setActiveState = () => {
@@ -39,10 +47,18 @@ class Home extends React.Component {
     setTimeout(() => {
       this.setState({ initialOne: true })
     }, 100);
+
+    document.addEventListener('mousemove', (e) => {
+      this.setState({mouseX: e.pageX, mouseY: e.pageY});
+    });
+
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   render() {
-    const { active, initialOne, initialTwo } = this.state;
+    const { active, initialOne, initialTwo, mouseX, mouseY, windowWidth, windowHeight } = this.state;
+
     const firstGridClass = classnames('grid', {
       moved: active,
       initial: initialOne
@@ -50,6 +66,10 @@ class Home extends React.Component {
     const secondGridClass = classnames('grid', {
       initial: initialTwo,
     });
+
+    const gridXOffset = mouseX - (windowWidth / 2);
+    const gridYOffset = mouseY - (windowHeight / 2);
+    const gridTransform = `${gridXOffset / -10}px, ${gridYOffset / -10}px`;
 
     return (
       <div className="container">
@@ -61,18 +81,23 @@ class Home extends React.Component {
         <Header />
 
         <main ref={this.mainElRef}>
-          <div className={firstGridClass}>
+          <div 
+            className={firstGridClass}
+            style={{
+              transform: `translate(${gridTransform})`
+            }}
+          >
             {this.createGrid()}
           </div>
           {
             active && <div className={secondGridClass}>{this.createGrid()}</div>
           }
-          <div class="breadcrumbs" onClick={this.setActiveState}>
-            <span class="arrow">
+          {/* <div className="breadcrumbs" onClick={this.setActiveState}>
+            <span className="arrow">
               {String.fromCharCode(11105)}
             </span>
             <div>Go to previous day</div>
-          </div>
+          </div> */}
         </main>
 
         <Footer />
