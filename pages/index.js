@@ -36,7 +36,7 @@ class Home extends React.Component {
     for (let x = 0; x <= 15; x++) {
       for (let y = 0; y <= 15; y++) {
         const directory = 'iterations/2021-03-16/'
-        const filename = `out256_${padStart(x, 2, '0')}_${padStart(y, 2, '0')}.png`
+        const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
         gridEls.push(<Item imgSrc={`${directory}${filename}`} />)
       }
     }
