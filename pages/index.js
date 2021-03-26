@@ -2,16 +2,17 @@ import React from 'react';
 import padStart from 'lodash/padStart';
 import classnames from 'classnames';
 
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from 'next/head';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import Grid from '@components/Grid';
 import Item from '@components/Item';
 
 class Home extends React.Component {
   state = {
-    active: false,
+    active: true,
     initialOne: false,
-    initialTwo: false,
+    initialTwo: true,
     mouseX: -1,
     mouseY: -1,
     windowWidth: -1,
@@ -30,7 +31,7 @@ class Home extends React.Component {
       this.setState({ initialTwo: true })
     }, 10);
   }
-  
+
   createGrid() {
     let gridEls = []
     for (let x = 0; x <= 15; x++) {
@@ -81,23 +82,32 @@ class Home extends React.Component {
         <Header />
 
         <main ref={this.mainElRef}>
+          {/* <div className="grids">
+          </div> */}
+
           <div 
             className={firstGridClass}
-            style={{
-              transform: `translate(${gridTransform})`
-            }}
           >
             {this.createGrid()}
           </div>
           {
-            active && <div className={secondGridClass}>{this.createGrid()}</div>
+            active 
+            && 
+            <div 
+              className={secondGridClass}
+              style={{
+                transform: `translate(${gridTransform})`
+              }}
+            >
+              {this.createGrid()}
+            </div>
           }
-          {/* <div className="breadcrumbs" onClick={this.setActiveState}>
+          <div className="breadcrumbs" onClick={this.setActiveState}>
             <span className="arrow">
               {String.fromCharCode(11105)}
             </span>
             <div>Go to previous day</div>
-          </div> */}
+          </div>
         </main>
 
         <Footer />
