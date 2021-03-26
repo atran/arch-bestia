@@ -69,9 +69,12 @@ main {
   width: 100%;
 }
 
-.grid figure:hover,
-.grid figure.selected {
+.grid figure:hover {
   z-index: 10;
+}
+
+.grid figure.selected {
+  z-index: 11
 }
 
 .grid figure.selected {

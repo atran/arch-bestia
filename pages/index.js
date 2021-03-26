@@ -8,6 +8,8 @@ import Footer from '@components/Footer';
 import Grid from '@components/Grid';
 import Item from '@components/Item';
 
+import CAPTIONS from './captions'
+
 class Home extends React.Component {
   state = {
     active: true,
@@ -17,6 +19,7 @@ class Home extends React.Component {
     mouseY: -1,
     windowWidth: -1,
     windowHeight: -1,
+    caption: CAPTIONS[0]
   }
 
   updateWindowDimensions = () => {
@@ -32,13 +35,24 @@ class Home extends React.Component {
     }, 10);
   }
 
+  changeCaption(index) {
+    this.setState({
+      caption: CAPTIONS[index]
+    })
+  }
+
   createGrid() {
     let gridEls = []
     for (let x = 0; x <= 15; x++) {
       for (let y = 0; y <= 15; y++) {
         const directory = 'iterations/2021-03-16/'
         const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
-        gridEls.push(<Item imgSrc={`${directory}${filename}`} />)
+        gridEls.push(
+          <Item 
+            imgSrc={`${directory}${filename}`} 
+            mouseEnterHandler={() => this.changeCaption((x * 15) + y)}
+          />
+        )
       }
     }
     return gridEls;
@@ -58,7 +72,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { active, initialOne, initialTwo, mouseX, mouseY, windowWidth, windowHeight } = this.state;
+    const { active, initialOne, initialTwo, mouseX, mouseY, windowWidth, windowHeight, caption } = this.state;
 
     const firstGridClass = classnames('grid', {
       moved: active,
@@ -102,15 +116,15 @@ class Home extends React.Component {
               {this.createGrid()}
             </div>
           }
-          <div className="breadcrumbs" onClick={this.setActiveState}>
+          {/* <div className="breadcrumbs" onClick={this.setActiveState}>
             <span className="arrow">
               {String.fromCharCode(11105)}
             </span>
             <div>Go to previous day</div>
-          </div>
+          </div> */}
         </main>
 
-        <Footer />
+        <Footer caption={caption} />
       </div>
     )
   }

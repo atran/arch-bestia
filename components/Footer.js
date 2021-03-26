@@ -1,6 +1,6 @@
 import styles from './Footer.module.css'
 
-export default function Footer() {
+export default function Footer({caption}) {
   return (
     <>
       <footer className={styles.footer}>
@@ -10,7 +10,7 @@ export default function Footer() {
           <span href="#">About</span>
         </nav>
         <p className={styles.caption}>
-          Hello world AI generated caption ipsum dolor; etc.
+          {caption}
         </p>
       </footer>
     </>
