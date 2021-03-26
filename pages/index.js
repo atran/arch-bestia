@@ -8,7 +8,7 @@ import Footer from '@components/Footer';
 import Grid from '@components/Grid';
 import Item from '@components/Item';
 
-import CAPTIONS from './captions'
+import CAPTIONS from './../constants/captions'
 
 class Home extends React.Component {
   state = {
