@@ -71,10 +71,12 @@ main {
 
 .grid figure:hover {
   z-index: 10;
+  transform: scale(2.2);
 }
 
 .grid figure.selected {
-  z-index: 11
+  z-index: 11;
+  border: 3px solid red;
 }
 
 .grid figure.selected {

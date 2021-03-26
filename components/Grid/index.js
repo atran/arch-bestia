@@ -19,6 +19,7 @@ export default class Grid extends React.Component {
 
   render() {
     const gridClasses = classnames('grid');
+    
     return (
       <div className={gridClasses}>
       { this.createGrid() }
