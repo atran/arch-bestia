@@ -6,12 +6,23 @@ import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Grid from '@components/Grid';
-import Item from '@components/Item';
 
-import CAPTIONS from './../constants/captions'
+// import CAPTIONS from './../constants/captions'
 
 class Home extends React.Component {
+  state = {
+    caption: '',
+  }
+
+  changeCaption = (caption) => {
+    this.setState({
+      caption,
+    });
+  }
+
   render() {
+    const { caption } = this.state;
+
     return (
       <div className="container">
         <Head>
@@ -23,7 +34,7 @@ class Home extends React.Component {
 
         <main className="grids" ref={this.mainElRef}>
           <Grid isPast={true} />
-          <Grid />
+          <Grid changeCaption={this.changeCaption} />
         </main>
 
         {/* <div className="breadcrumbs" onClick={this.setActiveState}>
@@ -32,7 +43,7 @@ class Home extends React.Component {
           </span>
           <div>Go to previous day</div>
         </div> */}
-        {/* <Footer caption={caption} /> */}
+        <Footer caption={caption} />
       </div>
     )
   }

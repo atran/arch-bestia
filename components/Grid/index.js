@@ -13,6 +13,7 @@ class Grid extends React.Component {
       mouseY: -1,
       windowWidth: -1,
       windowHeight: -1,
+      captions: [],
     }
   }
 
@@ -23,22 +24,24 @@ class Grid extends React.Component {
     });
   }
 
-  changeCaption(x, y) {
-    const loc = (x * 15) + y;
-    console.log(x, y);
-  }
-
   createGrid() {
+    const { changeCaption } = this.props;
+    const { captions } = this.state;
+
     let gridEls = []
     for (let x = 0; x <= 15; x++) {
       for (let y = 0; y <= 15; y++) {
         const directory = 'iterations/2021-03-16/'
         const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
+        const gridItemIdx = y + 15 * x;
         gridEls.push(          
           <Item 
             imgSrc={`${directory}${filename}`} 
-            mouseEnterHandler={() => this.changeCaption(x, y)}
-          />)
+            mouseEnterHandler={() => 
+              changeCaption(captions[gridItemIdx])
+            }
+          />
+        )
       }
     }
     return gridEls;
@@ -54,6 +57,12 @@ class Grid extends React.Component {
       window.addEventListener('resize', this.updateWindowDimensions);
       this.updateWindowDimensions();
     }
+
+    const directory = 'iterations/2021-03-16/'
+
+    fetch(`${directory}captions.json`)
+      .then(response => response.json())
+      .then(captions => this.setState({ captions, }))
   }
 
   render() {
