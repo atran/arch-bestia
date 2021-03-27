@@ -72,16 +72,16 @@ class Grid extends React.Component {
     const gridClasses = classnames('grid', {
       'previous-grid': isPast
     });
-    const gridStyle = isPast ? null
-    : {
-      transform: `translate(${gridTransform})`
-    }
-    ;
+    const gridTransformStyle = 
+      isPast 
+      ? 'scale(0.6)' 
+      : `translate(${gridTransform})`
+      ;
     
     return (
       <div 
         className={gridClasses}
-        style={gridStyle}
+        style={{ transform: gridTransformStyle }}
       >
         { this.createGrid() }
       </div>
