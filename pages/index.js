@@ -20,8 +20,14 @@ class Home extends React.Component {
     });
   }
 
+  loadPreviousDay() {
+
+  }
+
   render() {
     const { caption } = this.state;
+    const prevDate = '2021-03-15';
+    const currDate = '2021-03-16';
 
     return (
       <div className="container">
@@ -32,17 +38,26 @@ class Home extends React.Component {
         
         <Header />
 
-        <main className="grids" ref={this.mainElRef}>
-          <Grid isPast={true} />
-          <Grid changeCaption={this.changeCaption} />
+        <main className="grids">
+          <Grid 
+            key={prevDate}
+            isPast={prevDate !== currDate} 
+            changeCaption={this.changeCaption} 
+          />
+          <Grid 
+            key={currDate}
+            isPast={currDate !== currDate} 
+            changeCaption={this.changeCaption} 
+          />
         </main>
 
-        {/* <div className="breadcrumbs" onClick={this.setActiveState}>
+        <div className="breadcrumbs">
           <span className="arrow">
             {String.fromCharCode(11105)}
           </span>
           <div>Go to previous day</div>
-        </div> */}
+        </div>
+
         <Footer caption={caption} />
       </div>
     )
