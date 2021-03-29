@@ -2,12 +2,15 @@ import React from 'react';
 import padStart from 'lodash/padStart';
 import classnames from 'classnames';
 import { motion } from "framer-motion"
+import { format } from 'date-fns'
 
 import Item from '@components/Item';
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
+
+    this.dateFormatted = format(props.iterationDate, 'yyyy-MM-dd');
 
     this.state = {
       mouseX: -1,
@@ -33,13 +36,13 @@ class Grid extends React.Component {
   }
 
   createGrid() {
-    const { changeCaption } = this.props;
+    const { changeCaption, iterationDate } = this.props;
     const { captions } = this.state;
-
+    
     let gridEls = []
     for (let x = 0; x <= 15; x++) {
       for (let y = 0; y <= 15; y++) {
-        const directory = 'iterations/2021-03-16/'
+        const directory = `iterations/${this.dateFormatted}/`
         const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
         const gridItemIdx = y + 15 * x;
         gridEls.push(          
@@ -63,7 +66,7 @@ class Grid extends React.Component {
       this.updateWindowDimensions();
     }
 
-    const directory = 'iterations/2021-03-16/'
+    const directory = `iterations/${this.dateFormatted}/`;
 
     fetch(`${directory}captions.json`)
       .then(response => response.json())

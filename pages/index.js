@@ -7,11 +7,13 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Grid from '@components/Grid';
 
+const CURRENT_DATE = '2021-03-16';
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
     
-    const currDate = parse('2021-03-16', 'yyyy-MM-dd', new Date());
+    const currDate = parse(CURRENT_DATE, 'yyyy-MM-dd', new Date());
     const prevDate = subDays(currDate, 1);
     this.state = {
       caption: '',
@@ -55,10 +57,11 @@ class Home extends React.Component {
 
         <main className="grids">
           <AnimatePresence>
-            {iterations.map((iteration) =>
-              <Grid 
-                key={iteration}
-                isPast={isBefore(iteration, iterations[1])} 
+            {iterations.map((thisIteration) =>
+              <Grid
+                key={thisIteration.toString()}
+                iterationDate={thisIteration}
+                isPast={isBefore(thisIteration, iterations[1])} 
                 changeCaption={this.changeCaption} 
               />
             )}
