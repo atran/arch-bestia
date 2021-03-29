@@ -10,6 +10,8 @@ body {
   margin: 0;
   font-family: PxGrotesk-Bold, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 * {
@@ -30,14 +32,22 @@ main {
   display: block;
 }
 
-.grid {
+.outer-grid {
   position: absolute;
-  top: -10vh;
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
+  height: 110vh;
   width: 120vw;
   opacity: 1;
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+
 }
 
 .grid.previous-grid {
@@ -46,9 +56,9 @@ main {
 }
 
 .grid figure {
-  width: 6%;
+  width: 8vw;
   height: auto;
-  margin: 1%;
+  margin: 1vw;
   cursor: pointer;
   position: relative;
 }
@@ -71,19 +81,4 @@ main {
 
 .grid figure.selected {
   transform: scale(2.2);
-}
-
-.breadcrumbs {
-  cursor: pointer;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 20vw;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumbs .arrow {
-  font-size: 100px;
 }

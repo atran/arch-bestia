@@ -1,17 +1,22 @@
 import React from 'react';
-import padStart from 'lodash/padStart';
-import classnames from 'classnames';
+import { AnimatePresence } from "framer-motion";
+import { parse, subDays, isBefore } from 'date-fns'
 
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Grid from '@components/Grid';
 
-// import CAPTIONS from './../constants/captions'
-
 class Home extends React.Component {
-  state = {
-    caption: '',
+  constructor(props) {
+    super(props);
+    
+    const currDate = parse('2021-03-16', 'yyyy-MM-dd', new Date());
+    const prevDate = subDays(currDate, 1);
+    this.state = {
+      caption: '',
+      iterations: [prevDate, currDate]
+    }
   }
 
   changeCaption = (caption) => {
@@ -20,14 +25,21 @@ class Home extends React.Component {
     });
   }
 
-  loadPreviousDay() {
+  changeDate = () => {
+    const { iterations } = this.state;
 
+    const prevDate = subDays(iterations[0], 1);
+    const currDate = subDays(iterations[1], 1);
+    this.setState({
+      iterations: [prevDate, currDate]
+    });
   }
 
   render() {
-    const { caption } = this.state;
-    const prevDate = '2021-03-15';
-    const currDate = '2021-03-16';
+    const { 
+      caption,
+      iterations,
+    } = this.state;
 
     return (
       <div className="container">
@@ -36,27 +48,22 @@ class Home extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <Header />
+        <Header 
+          currDate={iterations[1]} 
+          changeDate={this.changeDate}
+        />
 
         <main className="grids">
-          <Grid 
-            key={prevDate}
-            isPast={prevDate !== currDate} 
-            changeCaption={this.changeCaption} 
-          />
-          <Grid 
-            key={currDate}
-            isPast={currDate !== currDate} 
-            changeCaption={this.changeCaption} 
-          />
+          <AnimatePresence>
+            {iterations.map((iteration) =>
+              <Grid 
+                key={iteration}
+                isPast={isBefore(iteration, iterations[1])} 
+                changeCaption={this.changeCaption} 
+              />
+            )}
+          </AnimatePresence>
         </main>
-
-        <div className="breadcrumbs">
-          <span className="arrow">
-            {String.fromCharCode(11105)}
-          </span>
-          <div>Go to previous day</div>
-        </div>
 
         <Footer caption={caption} />
       </div>

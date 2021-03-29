@@ -1,6 +1,7 @@
 import React from 'react';
 import padStart from 'lodash/padStart';
 import classnames from 'classnames';
+import { motion } from "framer-motion"
 
 import Item from '@components/Item';
 
@@ -21,6 +22,13 @@ class Grid extends React.Component {
     this.setState({ 
       windowWidth: window.innerWidth, 
       windowHeight: window.innerHeight 
+    });
+  }
+
+  updateMousePosition = (e) => {
+    this.setState({ 
+      mouseX: e.pageX, 
+      mouseY: e.pageY 
     });
   }
 
@@ -50,10 +58,7 @@ class Grid extends React.Component {
   componentDidMount() {
     const { isPast } = this.props;
     if (!isPast) {
-      document.addEventListener('mousemove', (e) => {
-        this.setState({ mouseX: e.pageX, mouseY: e.pageY });
-      });
-
+      document.addEventListener('mousemove', this.updateMousePosition);
       window.addEventListener('resize', this.updateWindowDimensions);
       this.updateWindowDimensions();
     }
@@ -65,6 +70,22 @@ class Grid extends React.Component {
       .then(captions => this.setState({ captions, }))
   }
 
+  componentDidUpdate(prevProps) {
+    const { isPast } = this.props;
+    if (isPast) {
+      document.removeEventListener('mousemove', this.updateMousePosition);
+      window.removeEventListener('resize', this.updateWindowDimensions);
+    } else {
+      document.addEventListener('mousemove', this.updateMousePosition);
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousemove', this.updateMousePosition);
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
   render() {
     const {
       windowWidth,
@@ -72,28 +93,41 @@ class Grid extends React.Component {
       mouseX,
       mouseY
     } = this.state;
-    const { isPast } = this.props;
+    const { isPast, key } = this.props;
 
     const gridXOffset = mouseX - (windowWidth / 2);
     const gridYOffset = mouseY - (windowHeight / 2);
-    const gridTransform = `${gridXOffset / -10}px, ${gridYOffset / -10}px`;
+    const gridTransformX = `${gridXOffset / -10}px`;
+    const gridTransformY = `${gridYOffset / -10}px`;
 
     const gridClasses = classnames('grid', {
       'previous-grid': isPast
     });
-    const gridTransformStyle = 
-      isPast 
-      ? 'scale(0.6)' 
-      : `translate(${gridTransform})`
+    
+    const gridScaleStyle = 
+      isPast
+      ? 0.6 
+      : 1
       ;
     
     return (
-      <div 
-        className={gridClasses}
-        style={{ transform: gridTransformStyle }}
+      <motion.div 
+        className="outer-grid"
+        key={key}
+        initial={{ scale: gridScaleStyle, opacity: 0 }}
+        animate={{ scale: gridScaleStyle, opacity: 1 }}
+        exit={{ scale: gridScaleStyle + 0.2, opacity: 0 }}
       >
-        { this.createGrid() }
-      </div>
+        <motion.div 
+          className={gridClasses}
+          animate={{ 
+            x: gridTransformX,
+            y: gridTransformY,
+          }}
+        >
+          { this.createGrid() }
+        </motion.div>
+      </motion.div>
     )
   }
 }

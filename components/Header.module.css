@@ -1,14 +1,32 @@
 .header {
   width: 100%;
   display: flex;
-  position: fixed;
-  top: 0;
-  padding: 3vh 5vh;
+  margin: 3vh 5vh;
   z-index: 10001;
+  position: fixed;
+}
+
+.title,
+.breadcrumbs {
+  background: #ebebeb;
+  padding: 1vh 5vh;
+  border-radius: 2px;
+  font-size: 28px;
 }
 
 .title {
-  padding: 1vh 5vh;
-  background: #ebebeb;
   display: block;
+}
+
+.breadcrumbs {
+  cursor: pointer;
+  position: absolute;
+  left: 71vw;
+  width: 24vw;
+  display: flex;
+}
+
+.arrow {
+  margin-right: 18px;
+  display: inline;
 }
