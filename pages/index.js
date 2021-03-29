@@ -4,7 +4,6 @@ import { parse, subDays, isBefore } from 'date-fns'
 
 import Head from 'next/head';
 import Header from '@components/Header';
-import Footer from '@components/Footer';
 import Grid from '@components/Grid';
 
 const CURRENT_DATE = '2021-03-16';
@@ -45,11 +44,6 @@ class Home extends React.Component {
 
     return (
       <div className="container">
-        <Head>
-          <title>The Architectural Beast</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        
         <Header 
           currDate={iterations[1]} 
           changeDate={this.changeDate}
@@ -68,7 +62,9 @@ class Home extends React.Component {
           </AnimatePresence>
         </main>
 
-        <Footer caption={caption} />
+        <p className="caption">
+          {caption}
+        </p>
       </div>
     )
   }

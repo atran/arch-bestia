@@ -82,3 +82,14 @@ main {
 .grid figure.selected {
   transform: scale(2.2);
 }
+
+.caption {
+  background: #ebebeb;
+  padding: 8px 15px 10px 15px;
+  border-radius: 2px;
+  position: fixed;
+  bottom: 3vh;
+  right: 3vh;
+  color: black;
+  z-index: 100001;
+}

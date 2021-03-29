@@ -2,27 +2,18 @@
   width: 100%;
   display: flex;
   position: fixed;
-  bottom: 0;
+  left: 3vh;
+  bottom: 3vh;
   padding: 3vh 5vh;
   font-size: 16px;
   justify-content: space-between;
+  z-index: 100001;
 }
 
-.footer span {
-  cursor: pointer;
+.footer nav a {
   margin-right: 5px;
   color: blue;
-}
-
-.footer span,
-.caption {
   background: #ebebeb;
   padding: 8px 15px 10px 15px;
   border-radius: 2px;
-}
-
-.caption {
-  align-self: flex-end;
-  cursor: default;
-  color: black;
 }
