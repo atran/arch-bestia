@@ -5,7 +5,7 @@ import { parse, subDays, isBefore } from 'date-fns'
 import Header from '@components/Header';
 import Grid from '@components/Grid';
 
-const CURRENT_DATE = '2021-03-16';
+const CURRENT_DATE = '2021-03-30';
 
 class Home extends React.Component {
   constructor(props) {
