@@ -1,0 +1,16 @@
+.artistbox {
+  width: 20vw;
+  margin: 1vw;
+}
+
+.artistbox img {
+  width: 100%;
+}
+
+.artistbox video {
+  position: fixed;
+  left: 10vw;
+  top: 10vh;
+  border: 30px solid black;
+  width: 80vw;
+}

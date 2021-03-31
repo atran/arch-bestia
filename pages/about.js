@@ -1,5 +1,11 @@
 function About() {
-  return <div>About</div>
+  return (
+    <div className="container">
+      <main className="side-page">
+        About
+      </main>
+    </div>
+  )
 }
 
 export default About;
