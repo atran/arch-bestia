@@ -40,8 +40,8 @@ class Grid extends React.Component {
     const { captions } = this.state;
     
     let gridEls = []
-    for (let x = 0; x <= 15; x++) {
-      for (let y = 0; y <= 15; y++) {
+    for (let x = 0; x <= 12; x++) {
+      for (let y = 0; y <= 12; y++) {
         const directory = `iterations/${this.dateFormatted}/`
         const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
         const gridItemIdx = y + 15 * x;
