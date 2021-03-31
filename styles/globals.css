@@ -34,20 +34,16 @@ main {
 
 .outer-grid {
   position: absolute;
-  height: 110vh;
   width: 120vw;
   opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .grid.previous-grid {
@@ -56,7 +52,7 @@ main {
 }
 
 .grid figure {
-  width: 8vw;
+  width: 5.1vw;
   height: auto;
   margin: 1vw;
   cursor: pointer;

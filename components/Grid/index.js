@@ -40,8 +40,8 @@ class Grid extends React.Component {
     const { captions } = this.state;
     
     let gridEls = []
-    for (let x = 0; x <= 12; x++) {
-      for (let y = 0; y <= 12; y++) {
+    for (let x = 0; x <= 11; x++) {
+      for (let y = 0; y <= 11; y++) {
         const directory = `iterations/${this.dateFormatted}/`
         const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
         const gridItemIdx = y + 15 * x;
@@ -100,7 +100,7 @@ class Grid extends React.Component {
 
     const gridXOffset = mouseX - (windowWidth / 2);
     const gridYOffset = mouseY - (windowHeight / 2);
-    const gridTransformX = `${gridXOffset / -10}px`;
+    const gridTransformX = `${gridXOffset / -5}px`;
     const gridTransformY = `${gridYOffset / -10}px`;
 
     const gridClasses = classnames('grid', {

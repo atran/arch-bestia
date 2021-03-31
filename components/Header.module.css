@@ -8,25 +8,43 @@
 
 .title,
 .breadcrumbs {
-  background: #ebebeb;
-  padding: 1vh 5vh;
+  padding: 1vh 1vw;
   border-radius: 2px;
   font-size: 28px;
 }
 
 .title {
-  display: block;
+  display: flex;
+  margin-bottom: 0;
+  align-items: center;
+  height: 6vw;
+  background: #ebebeb;
+}
+
+.title video {
+  display: inline;
+  margin-right: 1vw;
+  width: 4vw;
 }
 
 .breadcrumbs {
   cursor: pointer;
   position: absolute;
-  left: 71vw;
-  width: 24vw;
+  right: 4vw;
   display: flex;
+  flex-flow: column;
+}
+
+.breadcrumb {
+  margin: 0 0 0.5vh;
+  background: #ebebeb;
+  padding: 0.5vh 1vw;
+}
+
+.breadcrumb > * {
+  display: inline;
 }
 
 .arrow {
-  margin-right: 18px;
-  display: inline;
+  margin: 0 12px;
 }
