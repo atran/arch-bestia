@@ -16,7 +16,7 @@ class Home extends React.Component {
     const prevDate = subDays(currDate, 1);
     this.state = {
       caption: '',
-      iterations: [prevDate, currDate]
+      iterations: [currDate, prevDate]
     }
   }
 
@@ -29,9 +29,9 @@ class Home extends React.Component {
   goToPrevDay = () => {
     const { iterations } = this.state;
 
-    const prevDate = subDays(iterations[0], 1);
-    const currDate = subDays(iterations[1], 1);
-    const nextIterations = [prevDate, currDate];
+    const currDate = subDays(iterations[0], 1);
+    const prevDate = subDays(iterations[1], 1);
+    const nextIterations = [currDate, prevDate];
 
     // const currDateFormatted = format(prevDate, 'yyyy-MM-dd');
     // if (currDateFormatted === FIRST_DATE) {
@@ -46,10 +46,12 @@ class Home extends React.Component {
   goToNextDay = () => {
     const { iterations } = this.state;
 
-    const prevDate = addDays(iterations[0], 1);
-    const currDate = addDays(iterations[1], 1);
+    const currDate = addDays(iterations[0], 1);
+    const prevDate = addDays(iterations[1], 1);
+    const nextIterations = [currDate, prevDate];
+    
     this.setState({
-      iterations: [prevDate, currDate]
+      iterations: nextIterations,
     });
   }
 
@@ -64,7 +66,7 @@ class Home extends React.Component {
         <Header 
           firstDateFormatted={FIRST_DATE}
           lastDateFormatted={LAST_DATE}
-          currDate={iterations[1]} 
+          currDate={iterations[0]} 
           goToPrevDay={this.goToPrevDay}
           goToNextDay={this.goToNextDay}
         />
@@ -75,7 +77,7 @@ class Home extends React.Component {
               <Grid
                 key={thisIteration.toString()}
                 iterationDate={thisIteration}
-                isPast={isBefore(thisIteration, iterations[1])} 
+                isPast={isBefore(thisIteration, iterations[0])} 
                 changeCaption={this.changeCaption} 
               />
             )}

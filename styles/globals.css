@@ -38,7 +38,7 @@ main.side-page {
   display: block;
 }
 
-.outer-grid {
+.grid {
   position: absolute;
   width: 120vw;
   opacity: 1;
@@ -47,14 +47,15 @@ main.side-page {
   align-items: center;
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
+.grid.previous-grid {
+  pointer-events: none;
+  z-index: 1001;
 }
 
-.grid.previous-grid {
-  opacity: 0.6;
-  pointer-events: none;
+.inner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1002;
 }
 
 .grid figure {

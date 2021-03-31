@@ -107,22 +107,19 @@ class Grid extends React.Component {
       'previous-grid': isPast
     });
     
-    const gridScaleStyle = 
-      isPast
-      ? 0.6 
-      : 1
-      ;
+    const gridScaleStyle = isPast ? 0.6 : 1;
+    const gridOpacityStyle = isPast ? 0.6 : 1;
     
     return (
       <motion.div 
-        className="outer-grid"
+        className={gridClasses}
         key={key}
         initial={{ scale: gridScaleStyle, opacity: 0 }}
-        animate={{ scale: gridScaleStyle, opacity: 1 }}
+        animate={{ scale: gridScaleStyle, opacity: gridOpacityStyle }}
         exit={{ scale: gridScaleStyle + 0.2, opacity: 0 }}
       >
         <motion.div 
-          className={gridClasses}
+          className="inner-grid"
           animate={{ 
             x: gridTransformX,
             y: gridTransformY,
