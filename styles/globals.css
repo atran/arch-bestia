@@ -31,6 +31,7 @@ main {
 main.side-page {
   height: auto;
   overflow: auto;
+  padding: 10vh 10vw;
 }
 
 .container {
@@ -84,14 +85,6 @@ main.side-page {
   transform: scale(2.2);
 }
 
-.artists {
-  display: flex;
-  width: 80vw;
-  margin: 10vh 0;
-  flex-flow: wrap;
-  justify-content: center;
-}
-
 .caption {
   background: #ebebeb;
   padding: 8px 15px 10px 15px;
@@ -101,4 +94,32 @@ main.side-page {
   right: 3vh;
   color: black;
   z-index: 100001;
+}
+
+.artists {
+  display: flex;
+  width: 80vw;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.about-text {
+  width: 320px;
+}
+
+.about-text p {
+  position: relative;
+  z-index: 11;
+  margin-bottom: 12px;
+}
+
+.about-img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 1;
+  width: 25vw;
+  height: 25vw;
 }
