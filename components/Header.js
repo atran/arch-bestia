@@ -1,4 +1,5 @@
 import { format, parse } from 'date-fns'
+import { AnimatePresence, motion } from 'framer-motion';
 
 import styles from './Header.module.css'
 
@@ -21,7 +22,23 @@ export default function Header({
     <>
       <header className={styles.header}>
         <h1 className={styles.title}>
-          <video src={iterationVideoSrc} autoPlay loop />
+          <div style={{ display: 'inline', width: '4vw', height: '4vw', overflow: 'hidden', marginRight: '1vw'}}>
+            <AnimatePresence>
+          {
+            <motion.video 
+              initial={{ y: 100 }}
+              animate={{ y: 0 }}
+              exit={{ y: -100 }}
+              transition={{ duration: 2 }}
+              src={iterationVideoSrc} 
+              key={iterationVideoSrc}
+              exitBeforeEnter
+              autoPlay 
+              loop 
+            />
+          }
+          </AnimatePresence>
+          </div>
           Iteration {currDateFormatted}
         </h1>
 
