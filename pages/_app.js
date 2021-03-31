@@ -8,14 +8,16 @@ import '@styles/globals.css'
 
 function Application({ Component, pageProps }) {
   return (
+    <>
+    <Head>
+      <title>The Architectural Beast</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
     <AnimateSharedLayout>
-      <Head>
-        <title>The Architectural Beast</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Component {...pageProps} />
       <Footer />
     </AnimateSharedLayout>
+    </>
   )
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { AnimatePresence } from "framer-motion";
 import { parse, subDays, isBefore } from 'date-fns'
 
-import Head from 'next/head';
 import Header from '@components/Header';
 import Grid from '@components/Grid';
 
