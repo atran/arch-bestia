@@ -80,7 +80,7 @@ main.side-page {
 
 .grid figure.selected {
   z-index: 11;
-  border: 3px solid red;
+  border: 3px solid #ebebeb;
 }
 
 .grid figure.selected {
