@@ -1,9 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
 import { motion } from "framer-motion"
 
 import Artist from '@components/Artist';
 
+const modalStyle = {
+  content: {
+    width: '70vw',
+    height: '39.375vw',
+    inset: '50% 0 0 50%',
+    transform: 'translate(-50%, -60%)',
+    border: 0,
+    padding: 0,
+    background: 'none',
+  }
+};
+Modal.setAppElement('#__next');
+
 function Gallery({ artists }) {
+  let embed, modal_vid_url;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal(video_url) {
+    setIsOpen(true);
+    modal_vid_url = video_url;
+  }
+
+  function afterOpenModal() {
+    console.log(embed.src)
+    // embed.src = modal_vid_url;
+  }
+
+  function closeModal(){
+    setIsOpen(false);
+  }
+
   let mouseMove = () => {
     const updateTransform = (e) => {
       const windowWidth = window.innerWidth;
@@ -28,6 +59,7 @@ function Gallery({ artists }) {
 
   const [offsets, setOffsets] = useState(0);
 	// useEffect(mouseMove);
+
   return (
     <div className="container">
       <main className="side-page">
@@ -40,10 +72,44 @@ function Gallery({ artists }) {
         >
           {
             artists.map(({ artist, link, directory}) => (
-              <Artist key={directory} name={artist} link={link} dir={directory} />
+              <Artist 
+                key={directory} 
+                name={artist} 
+                link={link} 
+                dir={directory} 
+                clickHandler={openModal}
+              />
             ))
           }
         </motion.div>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          contentLabel="Artist Video"
+          style={modalStyle}
+        >
+          <button onClick={closeModal}>close</button>
+          <div style={{
+            padding: '56.25% 0 0 0',
+            position: 'relative'
+          }}>
+            <iframe 
+              ref={_embed => (embed = _embed)}
+              src="https://player.vimeo.com/video/531145622" 
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%'
+              }}
+              frameBorder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </Modal>
       </main>
     </div>
   )
