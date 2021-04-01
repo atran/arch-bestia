@@ -1,36 +1,33 @@
 .header {
   width: 100%;
   display: flex;
-  margin: 3vh 5vh;
+  justify-content: space-between;
+  padding: var(--frame-padding);
   z-index: 10001;
   position: fixed;
 }
 
 .title,
 .breadcrumbs {
-  padding: 1vh 1vw;
   border-radius: 2px;
   font-size: 28px;
 }
 
 .title {
   display: flex;
+  padding: 1vh 1vw;
   margin-bottom: 0;
   align-items: center;
-  height: 6vw;
   background: #ebebeb;
 }
 
 .title video {
   display: inline;
   margin-right: 1vw;
-  width: 4vw;
+  width: 80px;
 }
 
 .breadcrumbs {
-  cursor: pointer;
-  position: absolute;
-  right: 4vw;
   display: flex;
   flex-flow: column;
 }
@@ -38,7 +35,14 @@
 .breadcrumb {
   margin: 0 0 0.5vh;
   background: #ebebeb;
-  padding: 0.5vh 1vw;
+  padding: 0.5vh 5vw;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: auto;
+  pointer-events: none;
+  opacity: 0.2;
 }
 
 .breadcrumb > * {
@@ -46,5 +50,39 @@
 }
 
 .arrow {
-  margin: 0 12px;
+  margin-right: 12px;
+}
+
+@media (max-width: 955px) {
+  .header {
+    flex-flow: column;
+    font-size: 18px;
+  }
+
+  .title,
+  .breadcrumbs {
+    font-size: 18px;
+  }
+
+  .title {
+    margin-bottom: 0.5vh;
+    display: block;
+    text-align: center;
+  }
+
+  .title video {
+    display: none;
+  }
+
+  .breadcrumbs {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 355px) {
+  .title,
+  .breadcrumbs {
+    font-size: 12px;
+  }
 }

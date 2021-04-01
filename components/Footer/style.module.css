@@ -2,10 +2,8 @@
   width: 100%;
   display: flex;
   position: fixed;
-  left: 3vh;
-  bottom: 3vh;
-  padding: 3vh 5vh;
-  font-size: 16px;
+  bottom: 0;
+  padding: var(--frame-padding);
   justify-content: space-between;
   z-index: 100001;
 }
@@ -14,6 +12,24 @@
   margin-right: 5px;
   color: blue;
   background: #ebebeb;
-  padding: 8px 15px 10px 15px;
+  padding: 1vh 1vw;
   border-radius: 2px;
+  display: inline-block;
+}
+
+@media (max-width: 955px) {
+  .footer {
+    font-size: 14px;
+  }
+  .footer nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 355px) {
+  .footer {
+    font-size: 12px;
+  }
 }

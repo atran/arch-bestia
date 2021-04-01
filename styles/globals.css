@@ -1,3 +1,7 @@
+:root {
+  --frame-padding: 3vh 5vh;
+}
+
 @font-face {
   font-family: 'PxGrotesk-Bold';
   src:  url('/fonts/PxGrotesk-Bold.woff2') format('woff2'),
@@ -36,6 +40,10 @@ main.side-page {
 
 .container {
   display: block;
+}
+
+.grids {
+  position: fixed;
 }
 
 .outer-grid {
@@ -89,11 +97,12 @@ main.side-page {
 
 .caption {
   background: #ebebeb;
-  padding: 8px 15px 10px 15px;
+  padding: 1vh 1vw;
   border-radius: 2px;
   position: fixed;
-  bottom: 3vh;
-  right: 3vh;
+  bottom: 0;
+  right: 0;
+  margin: var(--frame-padding);
   color: black;
   z-index: 100001;
 }
@@ -124,4 +133,23 @@ main.side-page {
   opacity: 1;
   width: 25vw;
   height: 25vw;
+}
+
+
+@media (max-width: 955px) {
+  .caption {
+    bottom: 8vh;
+    left: 0;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 355px) {
+  .caption {
+    font-size: 12px;
+  }
+  .about-text {
+    width: 80vw;
+  }
 }

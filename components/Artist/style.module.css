@@ -14,3 +14,9 @@
   border: 30px solid black;
   width: 80vw;
 }
+
+@media (max-width: 800px) {
+  .artistbox {
+    width: 40vw;
+  }
+}
