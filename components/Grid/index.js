@@ -43,7 +43,7 @@ class Grid extends React.Component {
     for (let x = 0; x <= 11; x++) {
       for (let y = 0; y <= 11; y++) {
         const directory = `iterations/${this.dateFormatted}/`
-        const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.png`
+        const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`
         const gridItemIdx = y + 15 * x;
         gridEls.push(          
           <Item 

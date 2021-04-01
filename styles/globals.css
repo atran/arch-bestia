@@ -50,11 +50,13 @@ main.side-page {
 .grid {
   display: flex;
   flex-wrap: wrap;
+  z-index: 12;
 }
 
 .grid.previous-grid {
   opacity: 0.6;
   pointer-events: none;
+  z-index: 11;
 }
 
 .grid figure {

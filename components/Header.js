@@ -1,10 +1,11 @@
-import { format, parse } from 'date-fns'
+import { format, isBefore, isAfter, isEqual } from 'date-fns'
+import { last } from 'lodash';
 
 import styles from './Header.module.css'
 
 export default function Header({
-  firstDateFormatted, 
-  lastDateFormatted, 
+  firstDate, 
+  lastDate, 
   currDate, 
   goToPrevDay, 
   goToNextDay
@@ -13,9 +14,8 @@ export default function Header({
   const directory = `iterations/${currDateFormatted}`;
   const iterationVideoSrc = `${directory}/bounce.mp4`;
   
-  // TODO: it has to be a <> comparison
-  const hasPrevDays = lastDateFormatted === currDateFormatted;
-  const hasNextDays = firstDateFormatted === currDateFormatted;
+  const hasPrevDays = isAfter(currDate, firstDate);
+  const hasNextDays = isBefore(currDate, lastDate);
 
   return (
     <>

@@ -1,18 +1,20 @@
 import React from 'react';
 import { AnimatePresence } from "framer-motion";
-import { parse, format, subDays, addDays, isBefore } from 'date-fns'
+import { parse, subDays, addDays, isBefore, isEqual } from 'date-fns'
 
 import Header from '@components/Header';
 import Grid from '@components/Grid';
 
 const FIRST_DATE = '2021-03-29';
-const LAST_DATE = '2021-03-30';
+const LAST_DATE = '2021-03-31';
+const firstDate = parse(FIRST_DATE, 'yyyy-MM-dd', new Date());
+const lastDate = parse(LAST_DATE, 'yyyy-MM-dd', new Date());
 
 class Home extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);``
     
-    const currDate = parse(LAST_DATE, 'yyyy-MM-dd', new Date());
+    const currDate = lastDate;
     const prevDate = subDays(currDate, 1);
     this.state = {
       caption: '',
@@ -31,15 +33,8 @@ class Home extends React.Component {
 
     const prevDate = subDays(iterations[0], 1);
     const currDate = subDays(iterations[1], 1);
-    const nextIterations = [prevDate, currDate];
-
-    // const currDateFormatted = format(prevDate, 'yyyy-MM-dd');
-    // if (currDateFormatted === FIRST_DATE) {
-    //   nextIterations.shift();
-    // }
-    
     this.setState({
-      iterations: nextIterations,
+      iterations: [prevDate, currDate]
     });
   }
 
@@ -62,8 +57,8 @@ class Home extends React.Component {
     return (
       <div className="container">
         <Header 
-          firstDateFormatted={FIRST_DATE}
-          lastDateFormatted={LAST_DATE}
+          firstDate={firstDate}
+          lastDate={lastDate}
           currDate={iterations[1]} 
           goToPrevDay={this.goToPrevDay}
           goToNextDay={this.goToNextDay}
