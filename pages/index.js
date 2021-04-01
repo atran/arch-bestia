@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatePresence } from "framer-motion";
-import { parse, subDays, addDays, isBefore, isEqual } from 'date-fns'
+import { parse, subDays, addDays, isBefore } from 'date-fns'
 
 import Header from '@components/Header';
 import Grid from '@components/Grid';
@@ -67,6 +67,8 @@ class Home extends React.Component {
         <main className="grids">
           <AnimatePresence>
             {iterations.map((thisIteration) =>
+              isBefore(thisIteration, firstDate)
+              ? <span /> :
               <Grid
                 key={thisIteration.toString()}
                 iterationDate={thisIteration}
