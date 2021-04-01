@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './style.module.css';
 
-export default function Artist() {
+export default function Artist({ name, link, dir }) {
   const [isActive, setActive] = useState(false);
   const toggleClass = () => {
     setActive(!isActive);
@@ -12,15 +12,15 @@ export default function Artist() {
       className={styles.artistbox}
       onClick={toggleClass} 
     >
-      <h2><a href="#">Amorphis LA</a></h2>
-      <img src="/artists/00_Amorphis_LA/Ramiro.jpg" />
+      <img src={`/artists/${dir}/artist.jpg`} />
       {
         isActive &&
         <video 
-          src="/artists/00_Amorphis_LA/Ramiro_Granados.mp4" 
+          src="/artists/00_Amorphis_LA/artist.mp4" 
           autoPlay loop controls
         />
       }
+      <h3><a href={link} target="_blank">{name}</a></h3>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import range from 'lodash/range';
 
 import Artist from '@components/Artist';
 
-function Gallery() {
+function Gallery({ artists }) {
   let mouseMove = () => {
     const updateTransform = (e) => {
       const windowWidth = window.innerWidth;
@@ -30,7 +30,7 @@ function Gallery() {
 
   const [offsets, setOffsets] = useState(0);
 	// useEffect(mouseMove);
-
+  console.log(artists)
   return (
     <div className="container">
       <main className="side-page">
@@ -42,16 +42,32 @@ function Gallery() {
           }}
         >
           {
-            range(21).map((idx) => (
-              <Artist key={idx}>
-                {idx}
-              </Artist>
+            artists.map(({ artist, link, directory}) => (
+              <Artist key={directory} name={artist} link={link} dir={directory} />
             ))
           }
         </motion.div>
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://https://archbestia.com/';
+
+  const res = await fetch(`${server}/artists/index.json`)
+  const artists = await res.json()
+
+  if (!artists) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { artists }, // will be passed to the page component as props
+  }
 }
 
 export default Gallery;
