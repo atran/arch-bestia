@@ -92,17 +92,12 @@ function Gallery({ artists }) {
         >
           <button 
             onClick={closeModal}
-            style={{
-              float: 'right',
-              clear: 'both'
-            }}
           >
             Close
           </button>
           <div style={{
             padding: '56.25% 0 0 0',
-            position: 'relative',
-            marginTop: '30px'
+            position: 'relative'
           }}>
             <iframe 
               ref={_embed => (embed = _embed)}

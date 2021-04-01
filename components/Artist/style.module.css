@@ -5,6 +5,7 @@
 
 .artistbox img {
   width: 100%;
+  cursor: pointer;
 }
 
 .artistbox video {
