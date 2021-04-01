@@ -6,7 +6,7 @@ import Header from '@components/Header';
 import Grid from '@components/Grid';
 
 const FIRST_DATE = '2021-03-29';
-const LAST_DATE = '2021-03-31';
+const LAST_DATE = '2021-04-01';
 const firstDate = parse(FIRST_DATE, 'yyyy-MM-dd', new Date());
 const lastDate = parse(LAST_DATE, 'yyyy-MM-dd', new Date());
 
