@@ -1,4 +1,4 @@
-import { format, isBefore, isAfter, isEqual } from 'date-fns'
+import { format, isBefore, isAfter } from 'date-fns'
 import classnames from 'classnames';
 
 import styles from './Header.module.css'

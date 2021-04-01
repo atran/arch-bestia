@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion"
 
-import range from 'lodash/range';
-
 import Artist from '@components/Artist';
 
 function Gallery({ artists }) {
@@ -30,7 +28,6 @@ function Gallery({ artists }) {
 
   const [offsets, setOffsets] = useState(0);
 	// useEffect(mouseMove);
-  console.log(artists)
   return (
     <div className="container">
       <main className="side-page">

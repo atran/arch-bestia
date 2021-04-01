@@ -1,20 +1,22 @@
 import React from 'react';
 import { AnimatePresence } from "framer-motion";
-import { parse, subDays, addDays, isBefore } from 'date-fns'
+import { parse, format, subDays, addDays, isBefore } from 'date-fns'
 
 import Header from '@components/Header';
 import Grid from '@components/Grid';
 
-const FIRST_DATE = '2021-03-29';
-const LAST_DATE = '2021-04-01';
-const firstDate = parse(FIRST_DATE, 'yyyy-MM-dd', new Date());
-const lastDate = parse(LAST_DATE, 'yyyy-MM-dd', new Date());
+
 
 class Home extends React.Component {
   constructor(props) {
-    super(props);``
+    super(props);
+
+    const FIRST_DATE = '2021-03-29';
+    const LAST_DATE = props.lastDateFormatted;
+    this.firstDate = parse(FIRST_DATE, 'yyyy-MM-dd', new Date());
+    this.lastDate = parse(LAST_DATE, 'yyyy-MM-dd', new Date());
     
-    const currDate = lastDate;
+    const currDate = this.lastDate;
     const prevDate = subDays(currDate, 1);
     this.state = {
       caption: '',
@@ -57,8 +59,8 @@ class Home extends React.Component {
     return (
       <div className="container">
         <Header 
-          firstDate={firstDate}
-          lastDate={lastDate}
+          firstDate={this.firstDate}
+          lastDate={this.lastDate}
           currDate={iterations[1]} 
           goToPrevDay={this.goToPrevDay}
           goToNextDay={this.goToNextDay}
@@ -67,7 +69,7 @@ class Home extends React.Component {
         <main className="grids">
           <AnimatePresence>
             {iterations.map((thisIteration) =>
-              isBefore(thisIteration, firstDate)
+              isBefore(thisIteration, this.firstDate)
               ? <span /> :
               <Grid
                 key={thisIteration.toString()}
@@ -84,6 +86,13 @@ class Home extends React.Component {
         </p>
       </div>
     )
+  }
+}
+
+export async function getStaticProps() {
+  const currDateFormatted = format(new Date(), 'yyyy-MM-dd');
+  return {
+    props: { lastDateFormatted: currDateFormatted }
   }
 }
 
