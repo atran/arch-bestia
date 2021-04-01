@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './style.module.css';
 
-export default function Artist({ name, link, dir, clickHandler }) {
+export default function Artist({ name, link, dir, vimeo, clickHandler }) {
   const [isActive, setActive] = useState(false);
   const toggleClass = () => {
     setActive(!isActive);
@@ -10,7 +10,7 @@ export default function Artist({ name, link, dir, clickHandler }) {
   return (
     <div 
       className={styles.artistbox}
-      onClick={() => clickHandler('https://player.vimeo.com/video/43341047')} 
+      onClick={() => clickHandler(vimeo)} 
     >
       <img src={`/artists/${dir}/artist.jpg`} />
       {/* {

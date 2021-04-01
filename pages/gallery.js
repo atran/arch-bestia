@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import { motion } from "framer-motion"
+import { m, motion } from "framer-motion"
 
 import Artist from '@components/Artist';
 
@@ -16,9 +16,10 @@ const modalStyle = {
   }
 };
 Modal.setAppElement('#__next');
+let modal_vid_url;
 
 function Gallery({ artists }) {
-  let embed, modal_vid_url;
+  let embed;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal(video_url) {
@@ -27,8 +28,7 @@ function Gallery({ artists }) {
   }
 
   function afterOpenModal() {
-    console.log(embed.src)
-    // embed.src = modal_vid_url;
+    embed.src = modal_vid_url;
   }
 
   function closeModal(){
@@ -58,7 +58,7 @@ function Gallery({ artists }) {
 	};
 
   const [offsets, setOffsets] = useState(0);
-	// useEffect(mouseMove);
+	useEffect(mouseMove);
 
   return (
     <div className="container">
@@ -71,11 +71,12 @@ function Gallery({ artists }) {
           }}
         >
           {
-            artists.map(({ artist, link, directory}) => (
+            artists.map(({ artist, link, directory, vimeo_url}) => (
               <Artist 
                 key={directory} 
                 name={artist} 
                 link={link} 
+                vimeo={vimeo_url}
                 dir={directory} 
                 clickHandler={openModal}
               />
@@ -89,14 +90,23 @@ function Gallery({ artists }) {
           contentLabel="Artist Video"
           style={modalStyle}
         >
-          <button onClick={closeModal}>close</button>
+          <button 
+            onClick={closeModal}
+            style={{
+              float: 'right',
+              clear: 'both'
+            }}
+          >
+            Close
+          </button>
           <div style={{
             padding: '56.25% 0 0 0',
-            position: 'relative'
+            position: 'relative',
+            marginTop: '30px'
           }}>
             <iframe 
               ref={_embed => (embed = _embed)}
-              src="https://player.vimeo.com/video/531145622" 
+              src="https://player.vimeo.com/video/531918953" 
               style={{
                 position: 'absolute',
                 top: 0,
