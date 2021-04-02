@@ -93,6 +93,11 @@ function Gallery({ artists }) {
         >
           <button 
             onClick={closeModal}
+            style={{
+              display: 'block',
+              position: 'relative',
+              zIndex: 100001,
+            }}
           >
             Close
           </button>

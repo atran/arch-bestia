@@ -22,6 +22,17 @@ body {
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  margin: 0;
+  background: #fff;
+  color: blue;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-decoration: underline;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -141,7 +152,7 @@ main.side-page {
   .grids {
     top: -5vh;
   }
-  
+
   .caption {
     bottom: 8vh;
     left: 0;
