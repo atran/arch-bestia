@@ -50,12 +50,12 @@ function About() {
           </p>
           <p>
             Artists: <br />
-            BairBalliet, Herwig Baumgartner, Current Interests, Hernán Díaz Alonso, Griffin Enright, Natou Fall, Ramiro Diaz Granados, Soomeen Hahm ltd., Kordae Jatafa Henry, Damjan Jovanovic, Ferda Kolatan, Elena Manferdini, Fabian Marcaccio, P-A-T-T-E-R-N-S, Florencia Pita & Co, M. Casey Rehm, Ruy Klein, Servo LA-Stockholm, Testa &amp; Weiser, Tom Wiscombe, William Virgil, and Liam Young.
+            BairBalliet, Herwig Baumgartner, Current Interests, Hernán Díaz Alonso, Griffin Enright, Natou Fall, Ramiro Diaz Granados, Soomeen Hahm ltd., Kordae Jatafa Henry, Damjan Jovanovic, Ferda Kolatan, Elena Manferdini, Fabian Marcaccio, P-A-T-T-E-R-N-S, Florencia Pita &amp; Co, M. Casey Rehm, Ruy Klein, Servo LA-Stockholm, Testa &amp; Weiser, Tom Wiscombe, William Virgil, and Liam Young.
           </p>
 
           <p>
             Student Assistants:<br />
-            Xianing Chen, Christian Cononico, Corina Dow, Yuhong Gong, Shihya Huang, Esin Karaosman, Jiayi Li, Lu Liu, Caleb Roberts, Addeen Shahar, Changheng Song, Sanghyun Suh, Hiroto Tanabe, Tianao Xu, Seojeong Yun, Qingyang Zong
+            Xianing Chen, Christian Cononico, Corina Dow, Yuhong Gong, Shihya Huang, Esin Karaosman, Jiayi Li, Lu Liu, Caleb Roberts, Addeen Shahar, Changheng Song, Sanghyun Suh, Hiroto Tanabe, Tianao Xu, Seojeong Yun, and Qingyang Zong.
           </p>
           <br />
           <br />
