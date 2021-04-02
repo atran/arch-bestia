@@ -7,9 +7,10 @@ import Artist from '@components/Artist';
 const modalStyle = {
   content: {
     width: '70vw',
-    height: '39.375vw',
-    inset: '50% 0 0 50%',
-    transform: 'translate(-50%, -60%)',
+    height: 'calc(39.375vw + 60px)',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     border: 0,
     padding: 0,
     background: 'none',
@@ -97,7 +98,6 @@ function Gallery({ artists }) {
           </button>
           <div style={{
             padding: '56.25% 0 0 0',
-            position: 'relative'
           }}>
             <iframe 
               ref={_embed => (embed = _embed)}
