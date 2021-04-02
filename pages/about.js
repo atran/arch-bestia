@@ -59,8 +59,9 @@ function About() {
           </p>
           <br />
           <br />
-          <img src="/img/sciArcLogo.png" />
-
+          <a href="https://www.sciarc.edu/" target="_blank">
+            <img src="/img/sciArcLogo.png" />
+          </a>
         </div>
       </main>
     </div>
