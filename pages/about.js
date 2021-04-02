@@ -37,6 +37,30 @@ function About() {
           <p>Today, perhaps as never before, we share a technical language that flows from discipline to discipline, altering the paths of previously discrete branches of knowledge. Many practices—art, architecture, fashion, film, music—explore similar ambitions, ideas rippling across and among them. The notion of authorship itself is in flux.</p>
 
           <p>This exhibition acknowledges and propels this phenomenon. It seeks to carve a path through a jungle of aesthetic and conceptual similarities to provoke contamination. Through artificial intelligence, the work featured will be exposed to a perpetual state of transformation and mutation. The exhibition gathers a key set of practices, primarily from architecture, but also from art and fashion, to reveal facets of the strange beast that the tumultuous paradigm shifts of recent decades have left behind.</p>
+          <br />
+
+          {String.fromCharCode(9826)}
+
+          <br />
+
+          <p>
+            Curator: <a href="https://www.hda-x.co/" target="_blank">Hernan Diaz-Alonso</a><br />
+            Design: <a href="https://www.sciarc.edu/people/faculty/m-casey-rehm" target="_blank">M. Casey Rehm</a>, <a href="https://anthonytran.info/" target="_blank">Anthony Tran</a><br />
+            Project Team: <a href="https://www.lauremichelon.com/" target="_blank">Laure Michelon</a>
+          </p>
+          <p>
+            Artists: <br />
+            BairBalliet, Herwig Baumgartner, Current Interests, Hernán Díaz Alonso, Griffin Enright, Natou Fall, Ramiro Diaz Granados, Soomeen Hahm ltd., Kordae Jatafa Henry, Damjan Jovanovic, Ferda Kolatan, Elena Manferdini, Fabian Marcaccio, P-A-T-T-E-R-N-S, Florencia Pita & Co, M. Casey Rehm, Ruy Klein, Servo LA-Stockholm, Testa &amp; Weiser, Tom Wiscombe, William Virgil, and Liam Young.
+          </p>
+
+          <p>
+            Student Assistants:<br />
+            Xianing Chen, Christian Cononico, Corina Dow, Yuhong Gong, Shihya Huang, Esin Karaosman, Jiayi Li, Lu Liu, Caleb Roberts, Addeen Shahar, Changheng Song, Sanghyun Suh, Hiroto Tanabe, Tianao Xu, Seojeong Yun, Qingyang Zong
+          </p>
+          <br />
+          <br />
+          <img src="/img/sciArcLogo.png" />
+
         </div>
       </main>
     </div>
