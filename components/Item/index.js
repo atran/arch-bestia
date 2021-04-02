@@ -33,6 +33,7 @@ export default function Item({imgDate, x, y, mouseEnterHandler}) {
       className={isActive ? 'selected': null} 
       onClick={() => clickHandler(imgDate, x, y, filename)} 
       onMouseEnter={mouseEnterHandler}
+      key={imgSrc}
     >
       <img src={imgSrc} alt="" />
     </figure>

@@ -47,6 +47,7 @@ class Grid extends React.Component {
             imgDate={this.dateFormatted}
             x={x}
             y={y}
+            key={gridItemIdx}
             mouseEnterHandler={() => 
               changeCaption(captions[gridItemIdx])
             }
@@ -95,7 +96,7 @@ class Grid extends React.Component {
       mouseX,
       mouseY
     } = this.state;
-    const { isPast, key } = this.props;
+    const { isPast } = this.props;
 
     const gridXOffset = mouseX - (windowWidth / 2);
     const gridYOffset = mouseY - (windowHeight / 2);
@@ -115,7 +116,6 @@ class Grid extends React.Component {
     return (
       <motion.div 
         className="outer-grid"
-        key={key}
         initial={{ scale: gridScaleStyle, opacity: 0 }}
         animate={{ scale: gridScaleStyle, opacity: 1 }}
         exit={{ scale: gridScaleStyle + 0.2, opacity: 0 }}
