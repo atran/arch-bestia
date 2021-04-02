@@ -25,12 +25,13 @@ body {
 button {
   border: none;
   margin: 0;
-  background: #fff;
+  background: transparent;
   color: blue;
   text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 main {
