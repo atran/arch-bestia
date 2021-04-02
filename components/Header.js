@@ -26,7 +26,7 @@ export default function Header({
     <>
       <header className={styles.header}>
         <h1 className={styles.title}>
-          <video src={iterationVideoSrc} autoPlay loop />
+          <video src={iterationVideoSrc} autoPlay loop playsInline />
           Iteration {currDateFormatted}
         </h1>
 
