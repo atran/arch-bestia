@@ -20,7 +20,6 @@ function Application({ Component, pageProps, router }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        exitBeforeEnter
       >
         <Component {...pageProps} />
       </motion.div>
