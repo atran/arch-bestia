@@ -138,6 +138,10 @@ main.side-page {
 
 
 @media (max-width: 955px) {
+  .grids {
+    top: -5vh;
+  }
+  
   .caption {
     bottom: 8vh;
     left: 0;
