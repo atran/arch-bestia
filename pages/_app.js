@@ -12,6 +12,7 @@ function Application({ Component, pageProps, router }) {
     <Head>
       <title>The Architectural Beast</title>
       <link rel="icon" href="/favicon.ico" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </Head>
     <AnimatePresence>
       <motion.div 
