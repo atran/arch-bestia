@@ -35,13 +35,14 @@ class Grid extends React.Component {
   }
 
   createGrid() {
-    const { changeCaption, iterationDate } = this.props;
+    const { changeCaption } = this.props;
     const { captions } = this.state;
     
     let gridEls = []
-    for (let x = 0; x <= 11; x++) {
-      for (let y = 0; y <= 11; y++) {
-        const gridItemIdx = y + 15 * x;
+    const gridDimension = 11;
+    for (let x = 0; x <= gridDimension; x++) {
+      for (let y = 0; y <= gridDimension; y++) {
+        const gridItemIdx = y + (gridDimension + 1) * x;
         gridEls.push(          
           <Item 
             imgDate={this.dateFormatted}
