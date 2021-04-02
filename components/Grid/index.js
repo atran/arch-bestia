@@ -1,5 +1,4 @@
 import React from 'react';
-import padStart from 'lodash/padStart';
 import classnames from 'classnames';
 import { motion } from "framer-motion"
 import { format } from 'date-fns'
@@ -42,12 +41,12 @@ class Grid extends React.Component {
     let gridEls = []
     for (let x = 0; x <= 11; x++) {
       for (let y = 0; y <= 11; y++) {
-        const directory = `iterations/${this.dateFormatted}/`
-        const filename = `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`
         const gridItemIdx = y + 15 * x;
         gridEls.push(          
           <Item 
-            imgSrc={`${directory}${filename}`} 
+            imgDate={this.dateFormatted}
+            x={x}
+            y={y}
             mouseEnterHandler={() => 
               changeCaption(captions[gridItemIdx])
             }
