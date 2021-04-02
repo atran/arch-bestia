@@ -11,11 +11,11 @@ export default function Artist({ name, link, dir, vimeo, clickHandler }) {
     <div 
       className={styles.artistbox}
     >
-      <img 
+      <img
         src={`/artists/${dir}/artist.jpg`} 
         onClick={() => clickHandler(vimeo)} 
       />
-      <h3><a href={link} target="_blank">{name}</a></h3>
+      <h3>by <a href={link} target="_blank">{name}</a></h3>
     </div>
   )
 }

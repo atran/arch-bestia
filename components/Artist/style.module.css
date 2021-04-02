@@ -6,14 +6,18 @@
 .artistbox img {
   width: 100%;
   cursor: pointer;
+  transition: all 100ms linear;
+  margin-bottom: 8px;
 }
 
-.artistbox video {
-  position: fixed;
-  left: 10vw;
-  top: 10vh;
-  border: 30px solid black;
-  width: 80vw;
+.artistbox img:hover {
+  transform: scale(0.95);
+}
+
+@media (max-width: 950px) {
+  .artistbox {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 800px) {
