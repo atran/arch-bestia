@@ -101,8 +101,8 @@ class Grid extends React.Component {
 
     const gridXOffset = mouseX - (windowWidth / 2);
     const gridYOffset = mouseY - (windowHeight / 2);
-    const gridTransformX = `${gridXOffset / -5}px`;
-    const gridTransformY = `${gridYOffset / -10}px`;
+    const gridTransformX = isPast ? 0 : `${gridXOffset / -5}px`;
+    const gridTransformY = isPast ? 0 : `${gridYOffset / -10}px`;
 
     const gridClasses = classnames('grid', {
       'previous-grid': isPast
