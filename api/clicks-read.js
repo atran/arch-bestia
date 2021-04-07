@@ -49,23 +49,22 @@ exports.handler = async function(event, context, callback) {
     for (const coord of page) {
       coordinates.push(coord);
     }
-    return coordinates
+    return page
   })
-  
+  modeOfCoordinates = mode(coordinates)
+  const x = modeOfCoordinates[0];
+  const y = modeOfCoordinates[1];
+  const response = {
+    date: dateId,
+    filename: `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`,
+    modeOfCoordinates,
+  }
+  return callback(null, {
+    statusCode: 200,
+    body: JSON.stringify(response)
+  })
   .then(() => {
-    modeOfCoordinates = mode(flatten(coordinates))
-    console.log(modeOfCoordinates)
-    const x = modeOfCoordinates[0];
-    const y = modeOfCoordinates[1];
-    const response = {
-      date: dateId,
-      filename: `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`,
-      modeOfCoordinates,
-    }
-    return callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(response)
-    })
+    
   }).catch((error) => {
     console.log("error", error)
     return callback(null, {
