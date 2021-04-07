@@ -27,7 +27,7 @@ function mode(arr) {
 }
 
 /* export our lambda function as named "handler" export */
-exports.handler = (event, context, callback) => {
+exports.handler = async function(event, context, callback) {
   let modeOfCoordinates = []
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
@@ -45,7 +45,7 @@ exports.handler = (event, context, callback) => {
   )
 
   const pages = []
-  helper.each(function(page) {
+  await helper.each(function(page) {
     // Logs the page's contents,
     // for example: [ Ref(Collection("test"), "1234"), ... ]
     pages.push(page);
