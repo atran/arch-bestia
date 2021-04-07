@@ -28,7 +28,6 @@ function mode(arr) {
 
 /* export our lambda function as named "handler" export */
 exports.handler = async function(event, context, callback) {
-  const coordinates = [];
 
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
@@ -45,31 +44,33 @@ exports.handler = async function(event, context, callback) {
     )
   )
 
-  await helper.each(function(page) {
-    for (const coord of page) {
-      coordinates.push(coord);
-    }
-    return page
-  })
-  modeOfCoordinates = mode(coordinates)
-  const x = modeOfCoordinates[0];
-  const y = modeOfCoordinates[1];
-  const response = {
-    date: dateId,
-    filename: `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`,
-    modeOfCoordinates,
-  }
-  return callback(null, {
-    statusCode: 200,
-    body: JSON.stringify(response)
-  })
-  .then(() => {
+  try {
+    const coordinates = [];
     
-  }).catch((error) => {
+    await helper.each(function(page) {
+      for (const coord of page) {
+        coordinates.push(coord);
+      }
+    })
+    
+    const modeOfCoordinates = mode(coordinates)
+    const x = modeOfCoordinates[0];
+    const y = modeOfCoordinates[1];
+    const response = {
+      date: dateId,
+      filename: `out256_${padStart(y, 2, '0')}_${padStart(x, 2, '0')}.jpg`,
+      modeOfCoordinates,
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response)
+    }
+  } catch (error) {
     console.log("error", error)
-    return callback(null, {
+    return {
       statusCode: 400,
       body: JSON.stringify(error)
-    })
-  })
+    }
+  }
 }
