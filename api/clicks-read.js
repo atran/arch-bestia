@@ -28,7 +28,8 @@ function mode(arr) {
 
 /* export our lambda function as named "handler" export */
 exports.handler = async function(event, context, callback) {
-  let modeOfCoordinates = []
+  const coordinates = [];
+
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET
@@ -44,15 +45,16 @@ exports.handler = async function(event, context, callback) {
     )
   )
 
-  const pages = []
   await helper.each(function(page) {
-    // Logs the page's contents,
-    // for example: [ Ref(Collection("test"), "1234"), ... ]
-    pages.push(page);
-    modeOfCoordinates = mode(flatten(pages))
+    for (const coord of page) {
+      coordinates.push(coord);
+    }
+    return coordinates
   })
-
+  
   .then(() => {
+    modeOfCoordinates = mode(flatten(coordinates))
+    console.log(modeOfCoordinates)
     const x = modeOfCoordinates[0];
     const y = modeOfCoordinates[1];
     const response = {
