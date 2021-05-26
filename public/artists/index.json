@@ -126,9 +126,63 @@
     "vimeo_url": "https://player.vimeo.com/video/531959456"
   },
   {
+    "artist": "FreelandBuck",
+    "link": "https://www.freelandbuck.com/",
+    "directory": "21_FreelandBuck",
+    "vimeo_url": "https://player.vimeo.com/video/553465991"
+  },
+  {
+    "artist": "d.esk",
+    "link": "https://d-esk.net/",
+    "directory": "22_desk",
+    "vimeo_url": "https://player.vimeo.com/video/553469073"
+  },
+  {
+    "artist": "First Office",
+    "link": "https://d-esk.net/",
+    "directory": "23_First_Office",
+    "vimeo_url": "https://player.vimeo.com/video/553472682"
+  },
+  {
+    "artist": "SpinaGu",
+    "link": "https://spinagu.com/",
+    "directory": "24_SpinaGu",
+    "vimeo_url": "https://player.vimeo.com/video/553474587"
+  },
+  {
+    "artist": "RNThomsen Architecture",
+    "link": "http://rnthomsenarchitecture.com/",
+    "directory": "25_RNThomsen_Architecture",
+    "vimeo_url": "https://player.vimeo.com/video/553476387"
+  },
+  {
+    "artist": "Darin Johnstone Architects",
+    "link": "http://djarch.net/",
+    "directory": "26_Darin_Johnstone_Architects",
+    "vimeo_url": "https://player.vimeo.com/video/553478615"
+  },
+  {
     "artist": "JHB Studio",
     "link": "https://www.jhbstudio.com/",
-    "directory": "21_JHB_Studio",
+    "directory": "27_JHB_Studio",
     "vimeo_url": "https://player.vimeo.com/video/553552139"
+  },
+  {
+    "artist": "MILLI0NS",
+    "link": "http://www.millionsarchitecture.com/",
+    "directory": "28_Millions",
+    "vimeo_url": "https://player.vimeo.com/video/553554022"
+  },
+  {
+    "artist": "Zago Architecture",
+    "link": "http://www.zagoarchitecture.com/",
+    "directory": "29_Zago_Architecture",
+    "vimeo_url": "https://player.vimeo.com/video/553555291"
+  },
+  {
+    "artist": "UNToLD",
+    "link": "https://www.untold.wtf/",
+    "directory": "30_UNToLD",
+    "vimeo_url": "https://player.vimeo.com/video/553558210"
   }
 ]
